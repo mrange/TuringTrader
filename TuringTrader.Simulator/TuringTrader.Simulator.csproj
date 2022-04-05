@@ -1,9 +1,7 @@
-﻿<!--<Project Sdk="Microsoft.NET.Sdk">-->
-<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
-    <UseWPF>true</UseWPF>
+    <TargetFramework>net6.0</TargetFramework>
     <Authors>Felix Bertram</Authors>
     <Company>Bertram Solutions LLC</Company>
     <Product>TuringTrader</Product>
