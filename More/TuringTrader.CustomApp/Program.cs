@@ -134,7 +134,7 @@ namespace TuringTrader.CustomApp
 
             // set the default data feed, to have a proper fallback when
             // there are no data source descriptor files present
-            GlobalSettings.DefaultDataFeed = "yahoo";
+            // GlobalSettings.DefaultDataFeed = "yahoo";
 
             // instantiate algorithm
             // more advanced applications might use AlgorithmLoader here
