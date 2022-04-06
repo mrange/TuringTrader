@@ -21,7 +21,8 @@
 //              https://www.gnu.org/licenses/agpl-3.0.
 //==============================================================================
 
-#define ENABLE_NORGATE
+// TODO: Norgate datasource uses registry so currently only works on windows
+//#define ENABLE_NORGATE
 #define ENABLE_TIINGO
 #define ENABLE_FRED
 #define ENABLE_FAKEOPTIONS
@@ -201,6 +202,7 @@ namespace TuringTrader.Simulator
     public abstract class Universe
     {
         #region static public Universe New(string nickname)
+#if ENABLE_NORGATE
         /// <summary>
         /// Create new universe object
         /// </summary>
@@ -213,6 +215,7 @@ namespace TuringTrader.Simulator
         {
             return DataSourceCollection.NewUniverse(nickname);
         }
+#endif
         #endregion
 
         #region abstract public IEnumerable<string> Constituents
@@ -610,6 +613,7 @@ namespace TuringTrader.Simulator
         }
         #endregion
         #region static public Universe NewUniverse(string nickname)
+#if ENABLE_NORGATE
         /// <summary>
         /// Create new universe object.
         /// </summary>
@@ -620,6 +624,7 @@ namespace TuringTrader.Simulator
         {
             return new UniverseNorgate(nickname);
         }
+#endif
         #endregion
     }
 }

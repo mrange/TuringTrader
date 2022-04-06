@@ -50,6 +50,7 @@ namespace SimulatorEngine.Tests
             Assert.IsTrue(Math.Abs(d.Last().Close / d.First().Open - 102.36056 / 99.12445) < 1e-3);
         }
 
+#if ENABLE_NORGATE
         [TestMethod]
         public void Test_Universe()
         {
@@ -62,6 +63,7 @@ namespace SimulatorEngine.Tests
             Assert.IsTrue(isConstituent1 == false);
             Assert.IsTrue(isConstituent2 == true);
         }
+#endif
     }
 }
 

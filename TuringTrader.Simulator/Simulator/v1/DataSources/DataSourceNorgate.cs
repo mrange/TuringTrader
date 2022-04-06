@@ -35,6 +35,8 @@ using NDU = NorgateData.DataAccess;
 using NDW = NorgateData.WatchListLibrary;
 #endregion
 
+#if ENABLE_NORGATE
+
 namespace TuringTrader.Simulator
 {
     public partial class DataSourceCollection
@@ -470,6 +472,8 @@ namespace TuringTrader.Simulator
     }
 
 }
+
+#endif
 
 //==============================================================================
 // end of file

@@ -28,6 +28,8 @@ using System.IO;
 using System.Reflection;
 #endregion
 
+#if REGISTRY_ALLOWED
+
 namespace TuringTrader.Simulator
 {
     /// <summary>
@@ -318,6 +320,60 @@ namespace TuringTrader.Simulator
         #endregion
     }
 }
+
+#else
+namespace TuringTrader.Simulator
+{
+    using System;
+
+    /// <summary>
+    /// Class providing read/ write access to global settings, stored in the
+    /// Windows registry.
+    /// </summary>
+    public static class GlobalSettings
+    {
+        public const bool   LoadAlgoDlls              = true;
+        public const string TiingoApiKey              = "";
+        public const string DefaultTemplateExtension  = ".cs";
+        public const string DefaultDataFeed           = "Yahoo";
+
+        static string _homePath = Path.GetDirectoryName(Environment.ProcessPath);
+
+        static public string HomePath
+        {
+            get
+            {
+                return _homePath;
+            }
+            set
+            {
+                _homePath = value;
+            }
+        }
+        static public string AlgorithmPath
+        {
+            get
+            {
+                return Path.Combine(HomePath, "Algorithms");
+            }
+        }
+        static public string TemplatePath
+        {
+            get
+            {
+                return Path.Combine(HomePath, "Templates");
+            }
+        }
+        static public string DataPath
+        {
+            get
+            {
+                return Path.Combine(HomePath, "Data");
+            }
+        }
+    }
+}
+#endif
 
 //==============================================================================
 // end of file

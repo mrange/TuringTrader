@@ -357,6 +357,7 @@ namespace TuringTrader.Simulator
         private string _accountFilter;
         #endregion
         #region internal helpers
+#if REGISTRY_ALLOWED
         /// <summary>
         /// Launch and log into TWS.
         /// </summary>
@@ -416,6 +417,7 @@ namespace TuringTrader.Simulator
             Output.WriteLine("BrokerClientInteractiveBrokers: failed to connect to TWS on port {0}", port);
 #endif
         }
+#endif
         /// <summary>
         /// IB callback: Set next valid order id.
         /// </summary>
@@ -426,6 +428,7 @@ namespace TuringTrader.Simulator
         }
         #endregion
         #region public void Connect(string username, string password, int port = 7497, string ip = "127.0.0.1")
+#if REGISTRY_ALLOWED
         public void Connect(string username, string password, int port = 7497, string ip = "127.0.0.1")
         {
             Output.WriteLine("Connecting to TWS...");
@@ -471,6 +474,7 @@ namespace TuringTrader.Simulator
             }
             Output.WriteLine("TWS API connected.");
         }
+#endif
         #endregion
         #region public void Disconnect()
         /// <summary>
